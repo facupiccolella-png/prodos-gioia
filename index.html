@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta GIOIA Automotores — PRODOS Marketing Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple-main: #8B5CF6;
+    --purple-light: #A78BFA;
+    --purple-dark: #4C1D95;
+    --purple-mid: #6D28D9;
+    --purple-logo-dark: #3D1A5C;
+    --white: #FFFFFF;
+    --off-white: #F5F3FF;
+    --text-dark: #1C0A3B;
+    --text-mid: #4B3068;
+    --accent: #C4B5FD;
+    --gold: #F59E0B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--purple-dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(76, 29, 149, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(167,139,250,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-logo span {
+    width: 8px; height: 8px;
+    background: var(--purple-light);
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid var(--white);
+  }
+
+  .nav-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+  }
+
+  .nav-dot.active {
+    background: var(--white);
+    transform: scale(1.3);
+  }
+
+  /* ===== SLIDE SYSTEM ===== */
+  .presentation {
+    width: 100%;
+  }
+
+  .slide {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0 60px;
+  }
+
+  /* ===== DECORATIVE CIRCLES ===== */
+  .deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* ===== SLIDE 1: PORTADA ===== */
+  #slide-1 {
+    background: linear-gradient(135deg, #3D1A5C 0%, #6D28D9 50%, #8B5CF6 100%);
+    align-items: center;
+    text-align: center;
+  }
+
+  #slide-1 .deco1 {
+    width: 600px; height: 600px;
+    top: -150px; right: -150px;
+    background: rgba(167,139,250,0.12);
+    border: 2px solid rgba(167,139,250,0.2);
+  }
+
+  #slide-1 .deco2 {
+    width: 300px; height: 300px;
+    bottom: -80px; left: -80px;
+    background: rgba(167,139,250,0.08);
+    border: 2px solid rgba(167,139,250,0.15);
+  }
+
+  #slide-1 .deco3 {
+    width: 150px; height: 150px;
+    bottom: 80px; right: 120px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .slide-1-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .tag-chip {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+
+  .slide-1-inner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 82px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  .slide-1-inner h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .slide-1-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    margin-bottom: 48px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .prodos-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 1px;
+  }
+
+  .prodos-text-logo {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    letter-spacing: 2px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.5;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-hint span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== SLIDE 2: OBJETIVO ===== */
+  #slide-2 {
+    background: var(--off-white);
+    color: var(--text-dark);
+  }
+
+  #slide-2 .deco1 {
+    width: 700px; height: 700px;
+    top: -200px; right: -200px;
+    background: rgba(139,92,246,0.06);
+    border: 1px solid rgba(139,92,246,0.1);
+  }
+
+  .slide-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--purple-main);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--purple-main);
+  }
+
+  h2.slide-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+  }
+
+  h2.slide-title.white { color: var(--white); }
+
+  .objective-box {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 100%);
+    border-radius: 24px;
+    padding: 48px 52px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .objective-box::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 180px;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+  }
+
+  .objective-box p {
+    font-size: clamp(16px, 2vw, 22px);
+    line-height: 1.7;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .objective-box strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ===== SLIDE 3: ENFOQUE ===== */
+  #slide-3 {
+    background: linear-gradient(160deg, #3D1A5C 0%, #5B21B6 100%);
+  }
+
+  #slide-3 .deco1 {
+    width: 500px; height: 500px;
+    bottom: -150px; left: -100px;
+    background: rgba(167,139,250,0.08);
+    border: 1px solid rgba(167,139,250,0.15);
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .pillar-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .pillar-card:hover {
+    background: rgba(255,255,255,0.13);
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.25);
+  }
+
+  .pillar-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.12);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .pillar-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  /* ===== SLIDE 4: ECOSISTEMA ===== */
+  #slide-4 {
+    background: var(--off-white);
+    color: var(--text-dark);
+  }
+
+  #slide-4 .deco1 {
+    width: 400px; height: 400px;
+    top: 50px; right: -100px;
+    background: rgba(139,92,246,0.05);
+    border: 1px solid rgba(139,92,246,0.08);
+  }
+
+  .channels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .channel-card {
+    border-radius: 20px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .channel-card:hover { transform: translateY(-6px); }
+
+  .channel-card.instagram {
+    background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+    color: var(--white);
+  }
+
+  .channel-card.tiktok {
+    background: #010101;
+    color: var(--white);
+    border: 1px solid #333;
+  }
+
+  .channel-card.meta {
+    background: linear-gradient(135deg, #0668E1, #1877F2);
+    color: var(--white);
+  }
+
+  .channel-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .channel-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .channel-role {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 16px;
+  }
+
+  .channel-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  .channel-tag {
+    display: inline-block;
+    margin-top: 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ===== SLIDE 5: LÍNEAS DE COMUNICACIÓN ===== */
+  #slide-5 {
+    background: linear-gradient(160deg, #2D0A5C 0%, #4C1D95 60%, #6D28D9 100%);
+  }
+
+  .comm-lines {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .comm-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: all 0.3s;
+  }
+
+  .comm-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: scale(1.02);
+  }
+
+  .comm-number {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--purple-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--purple-dark);
+    margin-bottom: 20px;
+  }
+
+  .comm-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .comm-goal {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .comm-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .comm-tag {
+    background: rgba(255,255,255,0.1);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* ===== SLIDE 6: META ADS ===== */
+  #slide-6 {
+    background: var(--off-white);
+    color: var(--text-dark);
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .meta-visual {
+    position: relative;
+    height: 380px;
+  }
+
+  .meta-circle-bg {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .meta-c1 {
+    width: 300px; height: 300px;
+    top: 40px; left: 40px;
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple-main));
+    opacity: 0.12;
+  }
+
+  .meta-c2 {
+    width: 200px; height: 200px;
+    top: 90px; left: 90px;
+    background: linear-gradient(135deg, var(--purple-main), var(--purple-light));
+    opacity: 0.2;
+  }
+
+  .meta-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(109,40,217,0.08);
+    border-left: 3px solid var(--purple-main);
+    transition: all 0.25s;
+  }
+
+  .meta-item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 4px 20px rgba(109,40,217,0.15);
+  }
+
+  .meta-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple-main));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .meta-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+  }
+
+  .meta-text span {
+    font-size: 12px;
+    color: var(--text-mid);
+  }
+
+  /* ===== SLIDE 7: RESULTADOS ===== */
+  #slide-7 {
+    background: linear-gradient(160deg, #3D1A5C 0%, #6D28D9 100%);
+  }
+
+  #slide-7 .deco1 {
+    width: 600px; height: 600px;
+    top: -200px; right: -200px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .result-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    padding: 28px 24px;
+    transition: all 0.3s;
+  }
+
+  .result-card:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+  }
+
+  .result-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .result-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .result-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ===== SLIDE 8: CIERRE ===== */
+  #slide-8 {
+    background: linear-gradient(135deg, #2D0A5C 0%, #4C1D95 40%, #8B5CF6 100%);
+    align-items: center;
+    text-align: center;
+  }
+
+  #slide-8 .deco1 {
+    width: 500px; height: 500px;
+    top: -100px; left: -150px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  #slide-8 .deco2 {
+    width: 350px; height: 350px;
+    bottom: -100px; right: -80px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .close-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .close-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 28px;
+  }
+
+  .close-inner p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--purple-dark);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 18px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+  }
+
+  .footer-prodos {
+    margin-top: 60px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple-light), var(--accent));
+    transition: width 0.4s ease;
+    z-index: 200;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+  .fade-in-delay-5 { transition-delay: 0.5s; }
+  .fade-in-delay-6 { transition-delay: 0.6s; }
+
+  /* ===== PRODOS LOGO SVG INLINE ===== */
+  .prodos-logo-inline {
+    height: 28px;
+    width: auto;
+  }
+
+  /* Steps flow indicator */
+  .flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .flow-step-box {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    white-space: nowrap;
+    transition: all 0.3s;
+  }
+
+  .flow-step-box:hover {
+    background: rgba(255,255,255,0.18);
+  }
+
+  .flow-arrow {
+    color: rgba(255,255,255,0.35);
+    font-size: 18px;
+    padding: 0 6px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 14px 24px; }
+    .slide-content { padding: 0 24px; }
+    .channels-grid,
+    .comm-lines,
+    .results-grid { grid-template-columns: 1fr; }
+    .meta-grid { grid-template-columns: 1fr; }
+    .meta-visual { display: none; }
+    .pillars-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" width="130" height="30">
+      <!-- PR -->
+      <text x="0" y="46" font-family="DM Sans, sans-serif" font-weight="700" font-size="52" fill="#FFFFFF" letter-spacing="-1">PR</text>
+      <!-- O custom: ring + dot replacing the O -->
+      <circle cx="119" cy="24" r="16" stroke="#FFFFFF" stroke-width="6" fill="none"/>
+      <circle cx="119" cy="44" r="4.5" fill="#FFFFFF"/>
+      <!-- DOS -->
+      <text x="140" y="46" font-family="DM Sans, sans-serif" font-weight="700" font-size="52" fill="#C4B5FD" letter-spacing="-1">DOS</text>
+    </svg>
+  </div>
+  <div class="nav-dots" id="navDots">
+    <button class="nav-dot active" onclick="scrollToSlide(1)"></button>
+    <button class="nav-dot" onclick="scrollToSlide(2)"></button>
+    <button class="nav-dot" onclick="scrollToSlide(3)"></button>
+    <button class="nav-dot" onclick="scrollToSlide(4)"></button>
+    <button class="nav-dot" onclick="scrollToSlide(5)"></button>
+    <button class="nav-dot" onclick="scrollToSlide(6)"></button>
+    <button class="nav-dot" onclick="scrollToSlide(7)"></button>
+    <button class="nav-dot" onclick="scrollToSlide(8)"></button>
+  </div>
+</nav>
+
+<!-- SLIDE 1: PORTADA -->
+<section class="slide" id="slide-1">
+  <div class="deco-circle deco1"></div>
+  <div class="deco-circle deco2"></div>
+  <div class="deco-circle deco3"></div>
+  <div class="slide-1-inner">
+    <div class="tag-chip fade-in">Propuesta Estratégica · 2025</div>
+    <h1 class="fade-in fade-in-delay-1">
+      <em>GIOIA</em><br>Automotores
+    </h1>
+    <p class="slide-1-sub fade-in fade-in-delay-2">
+      Estrategia digital para el reposicionamiento y generación de oportunidades comerciales
+    </p>
+    <div class="prodos-badge fade-in fade-in-delay-3">
+      <span>Presentado por</span>
+      <span class="prodos-text-logo">PRODOS</span>
+      <span style="opacity:0.5">|</span>
+      <span>Marketing Digital</span>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 9l5 5 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- SLIDE 2: OBJETIVO -->
+<section class="slide" id="slide-2">
+  <div class="deco-circle deco1"></div>
+  <div class="slide-content">
+    <div class="section-label fade-in">01 · Objetivo</div>
+    <h2 class="slide-title fade-in fade-in-delay-1">¿Hacia dónde vamos?</h2>
+    <div class="objective-box fade-in fade-in-delay-2">
+      <p>
+        Trasladar la <strong>trayectoria y credibilidad</strong> de GIOIA Automotores al mundo digital, impulsando <strong>canales de venta digitales</strong> que generen oportunidades de contacto y refuercen su <strong>evolución generacional</strong> a través de una identidad de marca renovada, moderna y alineada a su legado.
+      </p>
+    </div>
+    <div class="flow-steps" style="margin-top:32px;">
+      <div class="flow-step fade-in fade-in-delay-3">
+        <div class="flow-step-box" style="background:rgba(109,40,217,0.1);border-color:rgba(109,40,217,0.25);color:var(--text-dark);">📌 Trayectoria & credibilidad</div>
+      </div>
+      <span class="flow-arrow" style="color:var(--purple-main);">→</span>
+      <div class="flow-step fade-in fade-in-delay-4">
+        <div class="flow-step-box" style="background:rgba(109,40,217,0.1);border-color:rgba(109,40,217,0.25);color:var(--text-dark);">🌐 Presencia digital sólida</div>
+      </div>
+      <span class="flow-arrow" style="color:var(--purple-main);">→</span>
+      <div class="flow-step fade-in fade-in-delay-5">
+        <div class="flow-step-box" style="background:rgba(109,40,217,0.1);border-color:rgba(109,40,217,0.25);color:var(--text-dark);">💬 Oportunidades de contacto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: ENFOQUE ESTRATÉGICO -->
+<section class="slide" id="slide-3">
+  <div class="deco-circle deco1"></div>
+  <div class="slide-content">
+    <div class="section-label fade-in" style="color:var(--accent);">02 · Enfoque estratégico</div>
+    <h2 class="slide-title white fade-in fade-in-delay-1">¿Desde dónde<br>vamos a trabajar?</h2>
+    <div class="pillars-grid">
+      <div class="pillar-card fade-in fade-in-delay-1">
+        <div class="pillar-num">01</div>
+        <div class="pillar-text"><strong style="color:var(--accent);">Actualizar</strong><br>la percepción de la marca hacia un posicionamiento más moderno y profesional</div>
+      </div>
+      <div class="pillar-card fade-in fade-in-delay-2">
+        <div class="pillar-num">02</div>
+        <div class="pillar-text"><strong style="color:var(--accent);">Ordenar</strong><br>su presencia en redes con criterio estratégico y coherencia visual</div>
+      </div>
+      <div class="pillar-card fade-in fade-in-delay-3">
+        <div class="pillar-num">03</div>
+        <div class="pillar-text"><strong style="color:var(--accent);">Conectar</strong><br>con nuevas audiencias que buscan tanto autos como confianza en quien vende</div>
+      </div>
+      <div class="pillar-card fade-in fade-in-delay-4">
+        <div class="pillar-num">04</div>
+        <div class="pillar-text"><strong style="color:var(--accent);">Transformar</strong><br>la visibilidad en consultas reales y oportunidades comerciales concretas</div>
+      </div>
+      <div class="pillar-card fade-in fade-in-delay-5">
+        <div class="pillar-num">05</div>
+        <div class="pillar-text"><strong style="color:var(--accent);">Construir</strong><br>una presencia digital que acompañe esta nueva etapa generacional del negocio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4: ECOSISTEMA DIGITAL -->
+<section class="slide" id="slide-4">
+  <div class="deco-circle deco1"></div>
+  <div class="slide-content">
+    <div class="section-label fade-in">03 · Ecosistema digital</div>
+    <h2 class="slide-title fade-in fade-in-delay-1">Los canales donde<br>vamos a crecer</h2>
+    <div class="channels-grid">
+      <div class="channel-card instagram fade-in fade-in-delay-1">
+        <span class="channel-icon">📸</span>
+        <div class="channel-role">Canal Principal</div>
+        <div class="channel-name">Instagram</div>
+        <p class="channel-desc">El eje de presencia y marca. Acá construimos identidad, mostramos unidades y conectamos con la audiencia local.</p>
+        <span class="channel-tag">Marca & Visibilidad</span>
+      </div>
+      <div class="channel-card tiktok fade-in fade-in-delay-2">
+        <span class="channel-icon">🎵</span>
+        <div class="channel-role">Amplificador</div>
+        <div class="channel-name">TikTok</div>
+        <p class="channel-desc">Para llegar a una audiencia más amplia, más joven y más activa. Contenido real, cercano y actual.</p>
+        <span class="channel-tag">Alcance & Cercanía</span>
+      </div>
+      <div class="channel-card meta fade-in fade-in-delay-3">
+        <span class="channel-icon">🎯</span>
+        <div class="channel-role">Motor Comercial</div>
+        <div class="channel-name">Meta Ads</div>
+        <p class="channel-desc">La herramienta para potenciar contenido y convertir visibilidad en consultas reales de compradores.</p>
+        <span class="channel-tag">Resultados & Contactos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: LÍNEAS DE COMUNICACIÓN -->
+<section class="slide" id="slide-5">
+  <div class="slide-content">
+    <div class="section-label fade-in" style="color:var(--accent);">04 · Contenido</div>
+    <h2 class="slide-title white fade-in fade-in-delay-1">3 líneas de comunicación<br>con un propósito claro</h2>
+    <div class="comm-lines">
+      <div class="comm-card fade-in fade-in-delay-1">
+        <div class="comm-number">1</div>
+        <div class="comm-title">Línea Comercial</div>
+        <div class="comm-goal">→ Activar el interés</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5;">Mostramos unidades, ingresos y oportunidades concretas para generar consultas directas.</p>
+        <div class="comm-tags">
+          <span class="comm-tag">Ingresos destacados</span>
+          <span class="comm-tag">Financiación</span>
+          <span class="comm-tag">Usados</span>
+          <span class="comm-tag">Oportunidades</span>
+        </div>
+      </div>
+      <div class="comm-card fade-in fade-in-delay-2">
+        <div class="comm-number">2</div>
+        <div class="comm-title">Línea de Comunidad</div>
+        <div class="comm-goal">→ Generar confianza</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5;">Una marca más cercana, activa y conectada con su gente. El equipo, las entregas, el día a día.</p>
+        <div class="comm-tags">
+          <span class="comm-tag">Entregas</span>
+          <span class="comm-tag">Equipo</span>
+          <span class="comm-tag">Detrás de escena</span>
+          <span class="comm-tag">Clientes</span>
+        </div>
+      </div>
+      <div class="comm-card fade-in fade-in-delay-3">
+        <div class="comm-number">3</div>
+        <div class="comm-title">Línea de Posicionamiento</div>
+        <div class="comm-goal">→ Construir percepción</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5;">La evolución generacional sin perder el valor de la trayectoria. Historia + nueva visión.</p>
+        <div class="comm-tags">
+          <span class="comm-tag">Legado</span>
+          <span class="comm-tag">Nueva generación</span>
+          <span class="comm-tag">Visión de futuro</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: META ADS -->
+<section class="slide" id="slide-6">
+  <div class="slide-content">
+    <div class="section-label fade-in">05 · Meta Ads</div>
+    <h2 class="slide-title fade-in fade-in-delay-1">La pauta que<br>convierte visibilidad en ventas</h2>
+    <div class="meta-grid">
+      <div class="meta-items fade-in fade-in-delay-2">
+        <div class="meta-item">
+          <div class="meta-icon">🏙️</div>
+          <div class="meta-text">
+            <strong>Reconocimiento de marca</strong>
+            <span>Ampliar visibilidad en la zona local</span>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">💡</div>
+          <div class="meta-text">
+            <strong>Interacción con contenido</strong>
+            <span>Potenciar las publicaciones más relevantes</span>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">💬</div>
+          <div class="meta-text">
+            <strong>Mensajes & WhatsApp</strong>
+            <span>Generar contacto directo con interesados</span>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">🎯</div>
+          <div class="meta-text">
+            <strong>Clientes potenciales</strong>
+            <span>Captar personas activamente interesadas</span>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">🔄</div>
+          <div class="meta-text">
+            <strong>Remarketing</strong>
+            <span>Volver a impactar usuarios que ya mostraron interés</span>
+          </div>
+        </div>
+      </div>
+      <div class="meta-visual fade-in fade-in-delay-3">
+        <div class="meta-circle-bg meta-c1 deco-circle"></div>
+        <div class="meta-circle-bg meta-c2 deco-circle"></div>
+        <div style="position:absolute;top:80px;left:60px;z-index:2;background:linear-gradient(135deg,#6D28D9,#8B5CF6);border-radius:20px;padding:28px;color:white;max-width:260px;box-shadow:0 20px 60px rgba(109,40,217,0.3);">
+          <div style="font-size:13px;opacity:0.7;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;">Objetivo central</div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1.3;">La pauta no trabaja sola — acompaña la estrategia de contenido.</div>
+          <div style="margin-top:20px;display:flex;gap:12px;">
+            <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:10px;text-align:center;flex:1;">
+              <div style="font-size:22px;font-weight:700;">3</div>
+              <div style="font-size:11px;opacity:0.7;">campañas</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:10px;text-align:center;flex:1;">
+              <div style="font-size:22px;font-weight:700;">360°</div>
+              <div style="font-size:11px;opacity:0.7;">cobertura</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: RESULTADOS ESPERADOS -->
+<section class="slide" id="slide-7">
+  <div class="deco-circle deco1"></div>
+  <div class="slide-content">
+    <div class="section-label fade-in" style="color:var(--accent);">06 · Resultados</div>
+    <h2 class="slide-title white fade-in fade-in-delay-1">Lo que vamos<br>a construir juntos</h2>
+    <div class="results-grid">
+      <div class="result-card fade-in fade-in-delay-1">
+        <span class="result-icon">🏆</span>
+        <div class="result-title">Marca más actual y mejor posicionada</div>
+        <div class="result-desc">Una imagen renovada que refleja tanto el legado como la nueva etapa de GIOIA.</div>
+      </div>
+      <div class="result-card fade-in fade-in-delay-2">
+        <span class="result-icon">📐</span>
+        <div class="result-title">Comunicación ordenada y coherente</div>
+        <div class="result-desc">Un sistema de contenido consistente que habla con una sola voz en todos los canales.</div>
+      </div>
+      <div class="result-card fade-in fade-in-delay-3">
+        <span class="result-icon">📍</span>
+        <div class="result-title">Mayor visibilidad local</div>
+        <div class="result-desc">Presencia fuerte dentro del mercado automotor de la zona.</div>
+      </div>
+      <div class="result-card fade-in fade-in-delay-4">
+        <span class="result-icon">🤝</span>
+        <div class="result-title">Comunidad más conectada</div>
+        <div class="result-desc">Audiencia que conoce la marca, confía en ella y la recomienda.</div>
+      </div>
+      <div class="result-card fade-in fade-in-delay-5">
+        <span class="result-icon">💬</span>
+        <div class="result-title">Más consultas de potenciales clientes</div>
+        <div class="result-desc">Flujo constante de contactos interesados llegando por canales digitales.</div>
+      </div>
+      <div class="result-card fade-in fade-in-delay-6">
+        <span class="result-icon">🚀</span>
+        <div class="result-title">Base digital para el crecimiento</div>
+        <div class="result-desc">Una plataforma digital sólida que escala con el negocio a largo plazo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 8: CIERRE -->
+<section class="slide" id="slide-8">
+  <div class="deco-circle deco1"></div>
+  <div class="deco-circle deco2"></div>
+  <div class="close-inner">
+    <div class="tag-chip fade-in" style="margin-bottom:28px;">Próximos pasos</div>
+    <h2 class="fade-in fade-in-delay-1">
+      Esta es la nueva<br><em style="font-style:normal;color:var(--accent);">etapa digital</em><br>de GIOIA.
+    </h2>
+    <p class="fade-in fade-in-delay-2">
+      Integramos trayectoria, renovación y estrategia digital para construir una marca más fuerte, más actual y con mayor capacidad de generar oportunidades comerciales reales.
+    </p>
+    <a href="https://wa.me/" class="cta-btn fade-in fade-in-delay-3">
+      Hablemos →
+    </a>
+    <div class="footer-prodos fade-in fade-in-delay-4">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 220 55" fill="none" style="opacity:0.5">
+        <text x="0" y="42" font-family="'DM Sans',sans-serif" font-weight="700" font-size="44" letter-spacing="-1" fill="#FFFFFF">PR</text>
+        <circle cx="84" cy="22" r="15" stroke="#FFFFFF" stroke-width="5.5" fill="none"/>
+        <circle cx="84" cy="36" r="4" fill="#FFFFFF"/>
+        <text x="102" y="42" font-family="'DM Sans',sans-serif" font-weight="700" font-size="44" letter-spacing="-1" fill="#C4B5FD">DOS</text>
+      </svg>
+      <div style="margin-top:8px;">Marketing Digital · Mendoza</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Progress bar
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+  }
+
+  // Nav dots
+  function updateNavDots() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.nav-dot');
+    const scrollMid = window.scrollY + window.innerHeight / 2;
+
+    slides.forEach((slide, i) => {
+      const top = slide.offsetTop;
+      const bottom = top + slide.offsetHeight;
+      if (scrollMid >= top && scrollMid < bottom) {
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[i]) dots[i].classList.add('active');
+      }
+    });
+  }
+
+  // Fade-in observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Scroll to slide
+  function scrollToSlide(n) {
+    const slide = document.getElementById('slide-' + n);
+    if (slide) slide.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  window.addEventListener('scroll', () => {
+    updateProgress();
+    updateNavDots();
+  });
+
+  // Initial trigger for slide 1 animations
+  document.querySelectorAll('#slide-1 .fade-in').forEach(el => el.classList.add('visible'));
+</script>
+</body>
+</html>
